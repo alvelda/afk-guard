@@ -1,0 +1,144 @@
+{
+  "schema": "afk-guard/dashboard-html/v1",
+  "example": true,
+  "generated_at": "2026-11-05T09:40:00-08:00",
+  "workspace": "workspace://foundry-EXAMPLE",
+  "host": "local",
+  "mode": "offline",
+  "note": "EXAMPLE DATA for the local HTML report. Not a live machine and not a customer deliverable.",
+  "tiles": {
+    "scan": {
+      "state": "Ran-fail",
+      "sev": "high",
+      "big": "7",
+      "sub": "findings · 3 high · 2 med · 2 info",
+      "proof": "exit 1 · secret.exposure.token_file · connectors/fal.env.EXAMPLE · [REDACTED] · bucket 32-47"
+    },
+    "canary": {
+      "state": "Ran-pass",
+      "sev": "pass",
+      "big": "4/4",
+      "sub": "planted · 2 loopback alerts",
+      "proof": "exit 0 · 4 planted markers · 2 loopback alerts in this JSON · values are fake shapes"
+    },
+    "mcp": {
+      "state": "Ran-fail",
+      "sev": "high",
+      "big": "pinned 5 · drift 1",
+      "sub": "hash mismatch on user-X",
+      "proof": "exit 1 · user-X content-hash drifted · pinned label vs observed label in this EXAMPLE"
+    },
+    "inject": {
+      "state": "Not-run",
+      "big": "email · inbound",
+      "sub": "documented skip · web payloads in Inject panel below",
+      "chip": "inject email",
+      "proof": "Not-run · inbound email skipped (CLI limit) · web payload classes are in the inject panel"
+    }
+  },
+  "drift_callout": {
+    "level": "high",
+    "title": "MCP hash drift above fold",
+    "text": "Pinned server user-X content-hash drifted: expected fp_mcp9k2m → observed fp_mcp7q1z. Fail-closed EXAMPLE stub: broker denies new grants until re-pin."
+  },
+  "findings": [
+    {
+      "sev": "high",
+      "rule": "secret.exposure.token_file",
+      "rule_code": "SEC-041",
+      "path": "connectors/fal.env.EXAMPLE",
+      "display_path": "…/connectors/fal.env.EXAMPLE",
+      "line": 4,
+      "length": 32,
+      "why": "Tool keys on disk can leak via logs or screenshots.",
+      "next": "Move the key off the file. Delete the plaintext copy. This report does not edit the file."
+    },
+    {
+      "sev": "high",
+      "rule": "mcp.pin.hash_drift",
+      "rule_code": "MCP-012",
+      "path": "mcp://user-X",
+      "display_path": "mcp://user-X",
+      "line": 1,
+      "why": "The pinned content-hash and the observed hash in this EXAMPLE are not the same.",
+      "next": "Re-pin after a human reviews the diff. Treat the server as fail-closed until then. This report does not edit the config."
+    },
+    {
+      "sev": "high",
+      "rule": "approval.relay.unverified",
+      "rule_code": "AUTH-007",
+      "path": "agent-bus/relay.EXAMPLE",
+      "display_path": "agent-bus/relay.EXAMPLE",
+      "line": 2,
+      "why": "A spend or deploy approval in this EXAMPLE arrived via an agent relay without a signature.",
+      "next": "Require a signed owner approval for that action. This report does not sign or send anything."
+    },
+    {
+      "sev": "medium",
+      "rule": "log.secret.pattern",
+      "rule_code": "LOG-003",
+      "path": "agent-tools/run.log",
+      "display_path": "…/agent-tools/run.log",
+      "line": 18,
+      "length": 28,
+      "why": "An authorization-like header shape was matched. The characters are not shown.",
+      "next": "Scrub the line before it is stored. This report does not rewrite the log."
+    },
+    {
+      "sev": "medium",
+      "rule": "browser.session.persist",
+      "rule_code": "BRW-002",
+      "path": "box-desktop/profile.EXAMPLE",
+      "display_path": "box-desktop/profile.EXAMPLE",
+      "line": 1,
+      "why": "This EXAMPLE records a long-lived browser profile on a shared box.",
+      "next": "Use a per-task profile and wipe it. Cookie values are not in this report."
+    },
+    {
+      "sev": "info",
+      "rule": "inventory.label.missing",
+      "rule_code": "INV-001",
+      "path": "connectors/beehiiv",
+      "display_path": "connectors/beehiiv",
+      "line": 1,
+      "why": "The connection path is not labeled api, export, or manual.",
+      "next": "Label the source before anyone treats the row as checked."
+    },
+    {
+      "sev": "info",
+      "rule": "limits.surface.unscanned",
+      "rule_code": "LIM-001",
+      "path": "email/inbound",
+      "display_path": "email/inbound",
+      "line": 1,
+      "why": "Inbound mail was not in this scan window.",
+      "next": "Leave it listed under what was not checked. Absence here is not a pass."
+    }
+  ],
+  "canary_intro": "Planted markers (fake shapes) · loopback only · EXAMPLE",
+  "canary_events": [
+    {"at": "09:12:01", "tone": "ok", "text": "planted CANARY-△-A in clipboard sink · listening"},
+    {"at": "09:12:04", "tone": "ok", "text": "planted CANARY-□-B in temp export path"},
+    {"at": "09:14:22", "tone": "alert", "text": "alert loopback hit CANARY-△-A via tool echo", "sev": "medium"},
+    {"at": "09:15:01", "tone": "alert", "text": "alert loopback hit CANARY-□-B via log scrub miss", "sev": "medium"}
+  ],
+  "drift_diff": {
+    "status": "drift",
+    "before_label": "PINNED",
+    "before": "fp_mcp9k2m…e21",
+    "after_label": "OBSERVED",
+    "after": "fp_mcp7q1z…91c",
+    "arrow": "DRIFT",
+    "note": "Servers checked: user-X, user-Google-calendar, user-Postiz, user-Beehiiv, cursor-github. Drift count K=1."
+  },
+  "inject": {
+    "state": "Ran-pass",
+    "summary": "3 payloads · 0 tool-fire",
+    "rows": [
+      {"class": "hidden HTML comment", "source": "fetched page", "verdict": "pass", "detail": "filtered"},
+      {"class": "agent-bus spoof", "source": "relay text", "verdict": "pass", "detail": "tagged"},
+      {"class": "markdown fence jailbreak", "source": "README scrape", "verdict": "pass", "detail": "no-op"}
+    ]
+  },
+  "limits_scope": "inbound email bodies · live Stripe/prod secrets · human-in-the-loop phone OTP · vendor-side revoke APIs · anything outside workspace://foundry-EXAMPLE"
+}

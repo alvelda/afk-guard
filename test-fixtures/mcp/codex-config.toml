@@ -1,0 +1,3 @@
+[mcp_servers.fastmcp-thing]
+command = "uvx"
+args = ["fastmcp==3.4.9"]

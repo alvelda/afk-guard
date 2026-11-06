@@ -1,0 +1,781 @@
+{
+ "schema": 1,
+ "generated_at": "2026-11-05T05:39:11-0800",
+ "feed": {
+  "path": "/workspace/passive-income/pi-003/staging/prod-20261104/agentfieldkit.com/agents/cyber/feed.json",
+  "sha256": "bcb962e69f882a526b6f0ca906694f987f47acf832836ce2fa8f4377adce40af",
+  "items_in_feed": 47,
+  "feed_url": "https://agentfieldkit.com/agents/cyber/feed.json"
+ },
+ "disclaimer": "Derived from the AFK Cyber Desk feed. Not a complete vulnerability database. A clean result does not mean a setup is safe.",
+ "advisories": [
+  {
+   "id": "afk-2026-10-23-mcp-inspector-2-12-0",
+   "title": "MCP Inspector: update to 2.12.0 or 1.0.3; malicious MCP servers could run commands on the developer's machine",
+   "cve": [],
+   "published": "2026-10-21",
+   "modified": "2026-10-26",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-23-mcp-inspector-2-12-0",
+   "upstream_url": "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-q978-78c7-phqw",
+   "references": [
+    "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-q978-78c7-phqw",
+    "https://www.npmjs.com/package/@modelcontextprotocol/inspector",
+    "https://github.com/modelcontextprotocol/inspector/security/advisories",
+    "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-4fc4-wcmh-4g86",
+    "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-6x67-4w4w-9f3w",
+    "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-vcc9-3xgm-p9v4"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "@modelcontextprotocol/inspector",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.0.3",
+      "2.12.0"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-22-mcp-ts-sdk-1-32-0",
+   "title": "MCP TypeScript SDK: five fixes for HTTP servers and clients (upgrade to 1.32.0 / 2.3.0)",
+   "cve": [],
+   "published": "2026-10-20",
+   "modified": "2026-10-22",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-22-mcp-ts-sdk-1-32-0",
+   "upstream_url": "https://github.com/advisories/GHSA-jm63-cq47-j5jp",
+   "references": [
+    "https://github.com/advisories/GHSA-jm63-cq47-j5jp",
+    "https://github.com/advisories/GHSA-46jr-4wx8-v453",
+    "https://github.com/advisories/GHSA-rvq5-wwqv-78pq",
+    "https://github.com/advisories/GHSA-22jm-h49p-29qw",
+    "https://github.com/advisories/GHSA-6prh-2h8m-c8cw"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "@modelcontextprotocol/sdk",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.32.0"
+     ]
+    },
+    {
+     "eco": "npm",
+     "name": "@modelcontextprotocol/server",
+     "kind": "vuln",
+     "fixed_in": [
+      "2.3.0"
+     ]
+    },
+    {
+     "eco": "npm",
+     "name": "@modelcontextprotocol/client",
+     "kind": "vuln",
+     "fixed_in": [
+      "2.3.0"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-26-mcp-reference-servers",
+   "title": "MCP reference servers: fetch, filesystem, everything and git fixed for SSRF, path escapes, cross-origin env leaks and a repository-confinement bypass",
+   "cve": [],
+   "published": "2026-10-25",
+   "modified": "2026-10-29",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-26-mcp-reference-servers",
+   "upstream_url": "https://github.com/modelcontextprotocol/servers/security/advisories",
+   "references": [
+    "https://github.com/modelcontextprotocol/servers/security/advisories",
+    "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-mvf5-2qqv-rg3c",
+    "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-4gxg-m5jx-9j57",
+    "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-v38p-wf49-hx2j",
+    "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-w766-5x43-whvw"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "@modelcontextprotocol/server-filesystem",
+     "kind": "vuln",
+     "fixed_in": null
+    },
+    {
+     "eco": "npm",
+     "name": "@modelcontextprotocol/server-everything",
+     "kind": "vuln",
+     "fixed_in": null
+    },
+    {
+     "eco": "pypi",
+     "name": "mcp-server-fetch",
+     "kind": "vuln",
+     "fixed_in": null
+    },
+    {
+     "eco": "pypi",
+     "name": "mcp-server-git",
+     "kind": "vuln",
+     "fixed_in": null
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-26-fastmcp-basic-memory",
+   "title": "FastMCP authorization and OAuth credential fixes (4.1.2 / 3.4.10); basic-memory MCP exposed to DNS rebinding before 0.24.0",
+   "cve": [],
+   "published": "2026-10-23",
+   "modified": "2026-10-26",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-26-fastmcp-basic-memory",
+   "upstream_url": "https://github.com/advisories/GHSA-7xgj-8392-5q4r",
+   "references": [
+    "https://github.com/advisories/GHSA-7xgj-8392-5q4r",
+    "https://github.com/advisories/GHSA-vqqp-x5qm-5qp4",
+    "https://github.com/basicmachines-co/basic-memory/security/advisories/GHSA-4gfv-c2mm-mvj2"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "fastmcp",
+     "kind": "vuln",
+     "fixed_in": [
+      "3.4.10",
+      "4.1.2"
+     ]
+    },
+    {
+     "eco": "pypi",
+     "name": "basic-memory",
+     "kind": "vuln",
+     "fixed_in": [
+      "0.24.0"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-23-obsidian-tc-mcp",
+   "title": "obsidian-tc MCP server before 1.3.1: web pages could reach a local vault, and any token could open any vault",
+   "cve": [],
+   "published": "2026-10-23",
+   "modified": "2026-10-23",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-23-obsidian-tc-mcp",
+   "upstream_url": "https://github.com/advisories/GHSA-pqh8-4pj7-32xx",
+   "references": [
+    "https://github.com/advisories/GHSA-pqh8-4pj7-32xx",
+    "https://github.com/advisories/GHSA-84c9-qqpq-2pq5",
+    "https://github.com/advisories/GHSA-737x-cwfr-5vvc"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "obsidian-tc",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.3.1"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-27-mcp-server-command-injection-batch",
+   "title": "Nine small MCP servers got command-injection CVEs on Oct 27-28 (model-filled tool arguments reach a shell); only functype-mcp-server has a fix (1.4.4)",
+   "cve": [],
+   "published": "2026-10-27",
+   "modified": "2026-11-02",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-27-mcp-server-command-injection-batch",
+   "upstream_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117558",
+   "references": [
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-117558",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-117569",
+    "https://github.com/advisories/GHSA-wcjj-9m6g-2fr2",
+    "https://testedmcp.com/security/2026-10/"
+   ],
+   "packages": [
+    {
+     "eco": "any",
+     "name": "functype-mcp-server",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.4.4"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-27-mcp-token-audience",
+   "title": "MCP servers with OAuth: AWS API MCP Server before 1.6.0 and the MCP Python SDK accepted tokens issued for other apps (CVE-2026-115413, CVE-2026-116684); the fix needs a config change",
+   "cve": [
+    "CVE-2026-115413",
+    "CVE-2026-116684"
+   ],
+   "published": "2026-10-27",
+   "modified": "2026-10-28",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-27-mcp-token-audience",
+   "upstream_url": "https://aws.amazon.com/security/security-bulletins/2026-152-aws/",
+   "references": [
+    "https://aws.amazon.com/security/security-bulletins/2026-152-aws/",
+    "https://github.com/awslabs/mcp/security/advisories/GHSA-4prq-p2x5-w9fh",
+    "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-w4fh-qvv9-3v23",
+    "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-5h93-6whr-6q8j",
+    "https://github.com/modelcontextprotocol/python-sdk/security/advisories/GHSA-rwrf-2pqf-9j8j",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-115413"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "awslabs.aws-api-mcp-server",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.6.0"
+     ]
+    },
+    {
+     "eco": "pypi",
+     "name": "mcp",
+     "kind": "vuln",
+     "fixed_in": null
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-11-02-aws-serverless-mcp-path-traversal",
+   "title": "AWS Serverless MCP Server project-name path traversal (CVE-2026-116635, before 0.2.1); upgrade to 0.2.1",
+   "cve": [
+    "CVE-2026-116635"
+   ],
+   "published": "2026-11-02",
+   "modified": "2026-11-03",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-11-02-aws-serverless-mcp-path-traversal",
+   "upstream_url": "https://github.com/awslabs/mcp/security/advisories/GHSA-r6mm-377j-qg8m",
+   "references": [
+    "https://github.com/awslabs/mcp/security/advisories/GHSA-r6mm-377j-qg8m",
+    "https://pranava0x0.github.io/vibe-coding-security/advisories/2026-11-mcp-server-november-cve-batch-aws-serverless-mcp-server-path-traversal-instatic-mcp-authorization.html"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "awslabs.aws-serverless-mcp-server",
+     "kind": "vuln",
+     "fixed_in": [
+      "0.2.1"
+     ],
+     "also_names": [
+      "aws-serverless-mcp-server",
+      "serverless-mcp-server"
+     ],
+     "name_unverified": true
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-11-02-mcphub-passthrough-headers",
+   "title": "MCPHub before 1.1.8: passthroughHeaders could disclose credentials to a non-admin user (CVE-2026-120323, medium); fixed in 1.1.8",
+   "cve": [
+    "CVE-2026-120323"
+   ],
+   "published": "2026-11-02",
+   "modified": "2026-11-02",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-11-02-mcphub-passthrough-headers",
+   "upstream_url": "https://github.com/advisories/GHSA-c48q-fjwh-j7gg",
+   "references": [
+    "https://github.com/advisories/GHSA-c48q-fjwh-j7gg",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-120323",
+    "https://github.com/samanhappy/mcphub/releases/tag/v1.1.8",
+    "https://github.com/samanhappy/mcphub/commit/040f7b9ae004070bdfe5084cde6bc2c609f78e76"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "@samanhappy/mcphub",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.1.8"
+     ],
+     "also_names": [
+      "mcphub"
+     ],
+     "name_unverified": true
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-29-autogpt-praisonai-pdf-mcp",
+   "title": "Agent platform fixes that expose keys or run code: AutoGPT Platform key exposure (0.10.0) and chat-share secret leak (0.8.3), PraisonAI workflow sandbox escape, pdf-reader-mcp API key never checked (3.0.1)",
+   "cve": [],
+   "published": "2026-10-29",
+   "modified": "2026-10-29",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-29-autogpt-praisonai-pdf-mcp",
+   "upstream_url": "https://github.com/Significant-Gravitas/AutoGPT/security/advisories/GHSA-xfwx-rhmm-rjqc",
+   "references": [
+    "https://github.com/Significant-Gravitas/AutoGPT/security/advisories/GHSA-xfwx-rhmm-rjqc",
+    "https://github.com/Significant-Gravitas/AutoGPT/security/advisories/GHSA-x9c2-wpmm-2mx4",
+    "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-26mh-57q7-jfvr",
+    "https://github.com/SylphxAI/pdf-reader-mcp/security/advisories/GHSA-q344-5v34-gm84"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "@sylphx/pdf-reader-mcp",
+     "kind": "vuln",
+     "fixed_in": [
+      "3.0.1"
+     ],
+     "also_names": [
+      "pdf-reader-mcp"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-26-opencode-mcp-oauth",
+   "title": "OpenCode before 1.18.33: a remote MCP server could run commands on Windows/WSL during OAuth sign-in (no CVE); separately, OpenCode Console provider keys may have been exposed",
+   "cve": [],
+   "published": "2026-10-19",
+   "modified": "2026-10-26",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-26-opencode-mcp-oauth",
+   "upstream_url": "https://www.pillar.security/blog/open-and-shut-remote-code-execution-in-opencode-via-mcp-oauth",
+   "references": [
+    "https://www.pillar.security/blog/open-and-shut-remote-code-execution-in-opencode-via-mcp-oauth",
+    "https://www.npmjs.com/package/opencode-ai",
+    "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
+    "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
+    "https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "opencode-ai",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.18.33"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-22-agent-sdk-fixes-openclaw-a2a",
+   "title": "Agent SDK fixes: OpenClaw 2026.6.6 (browser policy bypass) and A2A Java SDK 1.3.x (auth, SSRF, credential leaks)",
+   "cve": [],
+   "published": "2026-10-21",
+   "modified": "2026-10-22",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-22-agent-sdk-fixes-openclaw-a2a",
+   "upstream_url": "https://github.com/advisories/GHSA-3x84-qq85-fj65",
+   "references": [
+    "https://github.com/advisories/GHSA-3x84-qq85-fj65",
+    "https://github.com/advisories/GHSA-qw47-mcm5-934w",
+    "https://github.com/advisories/GHSA-4fpj-g9jf-9rgg",
+    "https://github.com/advisories/GHSA-q78c-5jjq-57g8"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "openclaw",
+     "kind": "vuln",
+     "fixed_in": [
+      "2026.6.6"
+     ],
+     "product": "openclaw"
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-22-agent-skill-packages-malware",
+   "title": "Agent skill packages flagged as malware on npm (opencode-skills-collection, agentic-awesome-skills, x402-prompt-injection-scan), plus an 'aanthropic' typosquat on PyPI",
+   "cve": [],
+   "published": "2026-10-22",
+   "modified": "2026-10-22",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-22-agent-skill-packages-malware",
+   "upstream_url": "https://github.com/advisories/GHSA-rgwm-3jj9-h563",
+   "references": [
+    "https://github.com/advisories/GHSA-rgwm-3jj9-h563",
+    "https://github.com/advisories/GHSA-9855-prwc-mfp2",
+    "https://github.com/advisories/GHSA-w84w-rhx7-2f7g",
+    "https://github.com/advisories/GHSA-9793-cg29-78xv",
+    "https://osv.dev/vulnerability/MAL-2026-18189"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "opencode-skills-collection",
+     "kind": "malicious"
+    },
+    {
+     "eco": "npm",
+     "name": "agentic-awesome-skills",
+     "kind": "malicious"
+    },
+    {
+     "eco": "npm",
+     "name": "x402-prompt-injection-scan",
+     "kind": "malicious"
+    },
+    {
+     "eco": "pypi",
+     "name": "aanthropic",
+     "kind": "malicious"
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-23-tekmidian-pai-malware",
+   "title": "npm package @tekmidian/pai ('Personal AI Infrastructure') versions 1.0.8-1.0.10 flagged as malware",
+   "cve": [],
+   "published": "2026-10-23",
+   "modified": "2026-10-23",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-23-tekmidian-pai-malware",
+   "upstream_url": "https://github.com/advisories/GHSA-xvgg-qjjh-gq34",
+   "references": [
+    "https://github.com/advisories/GHSA-xvgg-qjjh-gq34",
+    "https://osv.dev/vulnerability/MAL-2026-18205"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "@tekmidian/pai",
+     "kind": "malicious",
+     "affected_range": [
+      "1.0.8",
+      "1.0.10"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-21-litellm-1-107-0",
+   "title": "LiteLLM 1.107.0 on PyPI and Docker contained a credential stealer and backdoor",
+   "cve": [],
+   "published": "2026-10-21",
+   "modified": "2026-11-02",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-21-litellm-1-107-0",
+   "upstream_url": "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
+   "references": [
+    "https://docs.litellm.ai/blog/security-incident-oct-21-2026",
+    "https://osv.dev/vulnerability/MAL-2026-2144",
+    "https://www.wiz.io/blog/litellm-compromised-steals-credentials",
+    "https://github.com/BerriAI/litellm/issues/47826",
+    "https://github.com/advisories/GHSA-92x9-889m-jgmw",
+    "https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain",
+    "https://github.com/BerriAI/litellm/releases/tag/v1.106.3",
+    "https://socket.dev/blog/litellm-attack-timeline",
+    "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+    "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html",
+    "https://ccb.belgium.be/advisories/warning-litellm-release-v11070-compromised-remediate-immediately",
+    "https://github.com/BerriAI/litellm/security/advisories/GHSA-w4c7-34wj-hqm8",
+    "https://docs.litellm.ai/blog/tags/incident-report"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "litellm",
+     "kind": "malicious",
+     "affected_exact": [
+      "1.107.0"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-29-langflow-1-13-0",
+   "title": "Langflow 1.0.0 to 1.12.8: two critical (9.8) flaws, an authentication bypass and unauthenticated code execution, fixed only in 1.13.0; public tooling exists for the bypass",
+   "cve": [],
+   "published": "2026-10-28",
+   "modified": "2026-11-02",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-29-langflow-1-13-0",
+   "upstream_url": "https://www.ibm.com/support/pages/node/7294467",
+   "references": [
+    "https://www.ibm.com/support/pages/node/7294467",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-93680",
+    "https://github.com/advisories/GHSA-vfwm-g9g9-v2g5",
+    "https://www.rapid7.com/db/modules/auxiliary/gather/langflow_auth_bypass_cve_2026_93680/",
+    "https://www.ibm.com/support/pages/node/7293016",
+    "https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-langflow-mongodb-and-more/"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "langflow",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.13.0"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-28-n8n-deprecated-code-nodes",
+   "title": "n8n: deprecated code nodes let a workflow editor run code in the main process (CVE-2026-119408, fixed in 2.42.6, 2.43.3 and 3.0.1); Databricks node path traversal (CVE-2026-119557) has no fixed version yet",
+   "cve": [
+    "CVE-2026-119408",
+    "CVE-2026-119557"
+   ],
+   "published": "2026-10-28",
+   "modified": "2026-10-30",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-28-n8n-deprecated-code-nodes",
+   "upstream_url": "https://github.com/n8n-io/n8n/security/advisories/GHSA-9p7v-45m2-wxgj",
+   "references": [
+    "https://github.com/n8n-io/n8n/security/advisories/GHSA-9p7v-45m2-wxgj",
+    "https://github.com/n8n-io/n8n/security/advisories/GHSA-prmc-fg87-r4gh",
+    "https://github.com/n8n-io/n8n/security/advisories/GHSA-jmcg-c7p5-q69g",
+    "https://www.vulncheck.com/advisories/n8n-from-2.14.0-through-2.46.3-path-traversal-via-databricks-node",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-119557",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-119408"
+   ],
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "n8n",
+     "kind": "vuln",
+     "fixed_in": [
+      "2.42.6",
+      "2.43.3",
+      "3.0.1"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-28-strands-tools-env-masking",
+   "title": "Strands Agents Tools before 0.8.6: prompt injection could make the environment tool return the host's environment variables (API keys, cloud credentials) unmasked (CVE-2026-115415)",
+   "cve": [
+    "CVE-2026-115415"
+   ],
+   "published": "2026-10-28",
+   "modified": "2026-11-02",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-28-strands-tools-env-masking",
+   "upstream_url": "https://aws.amazon.com/security/security-bulletins/2026-154-aws/",
+   "references": [
+    "https://aws.amazon.com/security/security-bulletins/2026-154-aws/",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-115415"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "strands-agents-tools",
+     "kind": "vuln",
+     "fixed_in": [
+      "0.8.6"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-23-strands-a2a-session-leak",
+   "title": "Strands Agents SDK: A2A server could share one caller's conversation with another (fixed in strands-agents 1.43.0 and @strands-agents/sdk 1.5.0)",
+   "cve": [],
+   "published": "2026-10-23",
+   "modified": "2026-10-23",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-23-strands-a2a-session-leak",
+   "upstream_url": "https://github.com/advisories/GHSA-4v6f-7vjh-6x4m",
+   "references": [
+    "https://github.com/advisories/GHSA-4v6f-7vjh-6x4m",
+    "https://pypi.org/project/strands-agents/"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "strands-agents",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.43.0"
+     ]
+    },
+    {
+     "eco": "npm",
+     "name": "@strands-agents/sdk",
+     "kind": "vuln",
+     "fixed_in": [
+      "1.5.0"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-10-27-agno-eval-junie-cli",
+   "title": "Agno before 2.3.24: eval() code execution in FunctionCall now in GitHub's advisory database (CVE-2026-35002); JetBrains Junie CLI before 26.8.17 allowlist bypass (CVE-2026-117530)",
+   "cve": [
+    "CVE-2026-117530",
+    "CVE-2026-35002"
+   ],
+   "published": "2026-10-27",
+   "modified": "2026-10-27",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-27-agno-eval-junie-cli",
+   "upstream_url": "https://github.com/advisories/GHSA-m4w4-3r8h-jw98",
+   "references": [
+    "https://github.com/advisories/GHSA-m4w4-3r8h-jw98",
+    "https://github.com/agno-agi/agno/security/advisories/GHSA-m4w4-3r8h-jw98",
+    "https://github.com/agno-agi/agno/releases/tag/v2.3.24",
+    "https://nvd.nist.gov/vuln/detail/CVE-2026-117530",
+    "https://www.jetbrains.com/privacy-security/issues-fixed/"
+   ],
+   "packages": [
+    {
+     "eco": "pypi",
+     "name": "agno",
+     "kind": "vuln",
+     "fixed_in": [
+      "2.3.24"
+     ]
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "afk-2026-11-03-gitbook-ai-agent-attack",
+   "title": "GitBook reports an AI-agent-assisted attack on its infrastructure credentials (Nov 2); rotate GitBook API tokens, Git Sync and integration secrets, and re-authenticate the GitBook MCP server",
+   "cve": [],
+   "published": "2026-11-03",
+   "modified": "2026-11-04",
+   "source": "afk-cyber-desk-feed",
+   "source_type": "afk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-11-03-gitbook-ai-agent-attack",
+   "upstream_url": "https://www.gitbook.com/status/security-incident-2026-11-03",
+   "references": [
+    "https://www.gitbook.com/status/security-incident-2026-11-03",
+    "https://statuspage.incident.io/gitbook/incidents/24zzrnea",
+    "https://decrypt.co/382465/crypto-docs-gitbook-ai-agent-security-breach",
+    "https://www.wiz.io/blog/black-october-for-ai-developer-platforms"
+   ],
+   "packages": [
+    {
+     "eco": "any",
+     "name": "gitbook",
+     "kind": "incident",
+     "match": "contains"
+    }
+   ],
+   "rule_basis": "package names and version cut-offs transcribed from the feed item title by hand; not verified against the vendor advisory"
+  },
+  {
+   "id": "survey-openclaw-cve-2026-25253",
+   "title": "OpenClaw CVE-2026-25253: 1-click token exfiltration / RCE (survey note)",
+   "cve": [
+    "CVE-2026-25253"
+   ],
+   "source": "afk-security-survey/external/revealed-needs-named-products.md",
+   "source_type": "survey-note",
+   "source_url": "https://github.com/advisories/GHSA-g8p2-7wf7-98mq",
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "openclaw",
+     "kind": "vuln",
+     "fixed_in": null,
+     "product": "openclaw"
+    }
+   ],
+   "rule_basis": "no version data; presence of the product only"
+  },
+  {
+   "id": "survey-openclaw-cve-2026-25593",
+   "title": "OpenClaw CVE-2026-25593: command injection (survey note)",
+   "cve": [
+    "CVE-2026-25593"
+   ],
+   "source": "afk-security-survey/external/revealed-needs-named-products.md",
+   "source_type": "survey-note",
+   "source_url": "https://www.securityweek.com/openclaw-security-issues-continue-as-secureclaw-open-source-tool-debuts/",
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "openclaw",
+     "kind": "vuln",
+     "fixed_in": null,
+     "product": "openclaw"
+    }
+   ],
+   "rule_basis": "no version data; presence of the product only"
+  },
+  {
+   "id": "survey-openclaw-ghsa-gv46-4xfq-jv58",
+   "title": "OpenClaw GHSA-gv46-4xfq-jv58: approval bypass via injected params (survey note, CVSS 9.9 as quoted)",
+   "cve": [],
+   "source": "afk-security-survey/external/revealed-needs-named-products.md",
+   "source_type": "survey-note",
+   "source_url": "https://github.com/openclaw/openclaw/security/advisories/GHSA-gv46-4xfq-jv58",
+   "packages": [
+    {
+     "eco": "npm",
+     "name": "openclaw",
+     "kind": "vuln",
+     "fixed_in": null,
+     "product": "openclaw"
+    }
+   ],
+   "rule_basis": "no version data; presence of the product only"
+  }
+ ],
+ "extensions": [
+  {
+   "id": "afk-2026-10-29-cursor-claude-code-extension",
+   "title": "Cursor extension marketplace: tampered Anthropic.claude-code 2.1.312 and 2.1.313 (not made by Anthropic) tried to plant an SSH backdoor on Oct 29; check for a key labeled svc-telemetry",
+   "dir_names": [
+    "anthropic.claude-code-2.1.312",
+    "anthropic.claude-code-2.1.313"
+   ],
+   "source": "afk-cyber-desk-feed",
+   "source_url": "https://agentfieldkit.com/agents/cyber#afk-2026-10-29-cursor-claude-code-extension",
+   "upstream_url": "https://cursor.com/blog/claude-code-extension-security-notice"
+  }
+ ]
+}

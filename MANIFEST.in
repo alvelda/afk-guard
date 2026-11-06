@@ -1,0 +1,23 @@
+# Free sdist only. Paid/private trees are pruned even if a default manifest added them.
+global-exclude *
+include pyproject.toml
+include README.md
+include LICENSE
+include MANIFEST.in
+recursive-include afk_guard *.py
+recursive-include afk_guard/data *.json
+prune afk_guard/platform
+prune afk_guard/__pycache__
+prune plan
+prune tests
+prune docs
+prune trial-audits
+prune scripts
+prune test-fixtures
+prune critique
+global-exclude *.pyc
+global-exclude */__pycache__/*
+global-exclude .env
+global-exclude *.env
+exclude updates.jsonl
+exclude CONTRIBUTING.md

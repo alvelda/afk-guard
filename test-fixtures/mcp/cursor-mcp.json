@@ -1,0 +1,14 @@
+{
+  // EXAMPLE DATA for tests only
+  "mcpServers": {
+    "inspector": {"command": "npx", "args": ["-y", "@modelcontextprotocol/inspector@2.11.0"]},
+    "inspector-fixed": {"command": "npx", "args": ["-y", "@modelcontextprotocol/inspector@2.12.0"]},
+    "obsidian": {"command": "npx", "args": ["-y", "obsidian-tc"]},
+    "bad-skill": {"command": "npx", "args": ["-y", "opencode-skills-collection@1.0.0"]},
+    "lite": {"command": "uvx", "args": ["litellm==1.107.0"]},
+    "n8n-mid": {"command": "npx", "args": ["n8n@2.43.0"]},
+    "gitbook": {"url": "https://example.invalid/gitbook/mcp"},
+    "plain-http": {"url": "http://mcp.example.invalid/sse"},
+    "safe": {"command": "npx", "args": ["-y", "left-pad-mcp@1.0.0"]},
+  }
+}

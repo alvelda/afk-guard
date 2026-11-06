@@ -1,0 +1,11 @@
+{
+  "example_data": true,
+  "note": "Invented grants for demonstrating the preview. Not a real account.",
+  "grants": [
+    {"vendor": "google", "agent": "Example Mail Helper", "scopes": ["https://www.googleapis.com/auth/gmail.send", "https://www.googleapis.com/auth/calendar.events"], "status": "connected"},
+    {"vendor": "github", "agent": "Example Release Bot", "scopes": ["repo", "workflow"], "status": "connected"},
+    {"vendor": "slack", "agent": "Example Notes Agent", "scopes": ["channels:history"], "status": "connected"},
+    {"vendor": "stripe", "agent": "Example Billing Agent (restricted key)", "scopes": ["refunds_write", "customer_write"], "status": "disconnected_claimed", "disconnected_at": "2026-10-01T09:00:00Z", "last_activity_at": "2026-10-20T14:30:00Z"},
+    {"vendor": "google", "agent": "Example Old Calendar Sync", "scopes": ["https://www.googleapis.com/auth/calendar.readonly"], "status": "disconnected_claimed", "disconnected_at": "2026-09-01T09:00:00Z", "still_listed": true}
+  ]
+}

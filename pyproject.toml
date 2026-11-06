@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "afk-guard"
+version = "0.1.0"
+description = "Local-only secret scanner, canary tokens, MCP/OpenClaw advisory check with pin/hash/drift, offline inject-check, and a local HTML dashboard for AI agent setups. Not a certification and not a firewall."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+dependencies = []
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Security",
+]
+
+# No maintainer name, public contact, or project URL is recorded.
+# Do not invent one. Do not point metadata at a private forge.
+
+[project.scripts]
+afk-guard = "afk_guard.cli:main"
+
+[tool.setuptools]
+packages = ["afk_guard"]
+include-package-data = false
+license-files = ["LICENSE"]
+
+[tool.setuptools.package-data]
+afk_guard = ["data/*.json"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["platform/*", "platform/**/*"]
