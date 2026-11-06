@@ -2,7 +2,7 @@
 
 Free, local-only guard rails for people who run AI agents. Apache-2.0. Python 3.9+, standard library only, no network calls.
 
-Status: **0.1.0, private repository, not published** until Phillip approves G1 (public release). Part of Agent Field Kit (AFK).
+Status: **0.1.0, first public open-source release (Apache-2.0). Repository: https://github.com/alvelda/afk-guard**
 
 On this tree, **DEF-006** and **DEF-007** are closed. That is a private-tree fact, not a release.
 
