@@ -4,12 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "afk-guard"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local-only secret scanner, canary tokens, MCP/OpenClaw advisory check with pin/hash/drift, offline inject-check, and a local HTML dashboard for AI agent setups. Not a certification and not a firewall."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.9"
-dependencies = []
+dependencies = [
+    "tomli>=1.2.3; python_version < '3.11'",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Console",

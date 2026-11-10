@@ -99,7 +99,7 @@ def cmd_mcp(a):
             update=a.update_pins, parse_failed=mcpcheck.notes_indicate_parse_failure(notes),
         )
     else:
-        pin_findings = mcpcheck.safety_findings(pins)
+        pin_findings = mcpcheck.safety_findings(pins) + mcpcheck.parse_skip_findings(notes)
     report = mcpcheck.build_report(
         __version__, generated_at, configs, servers, adv, hits, ext, hyg, notes, pins, pin_findings)
     if a.format == "json":
@@ -121,9 +121,14 @@ def cmd_mcp(a):
             print(f"{fnd['check'].upper():18} {where} {fnd['message']}".rstrip())
         for n in notes:
             print("note:", n)
-        drift_n = sum(1 for fnd in pin_findings if fnd.get("check") in mcpcheck.BLOCKING_CHECKS
+        drift_n = sum(1 for fnd in pin_findings if fnd.get("check") in mcpcheck.DRIFT_CHECKS
                       and fnd.get("severity") in mcpcheck.GATE_SEVERITIES)
-        print(f"-- {len(hits)} advisory hits, {len(ext)} extension hits, {len(hyg)} hygiene items, {drift_n} pin-drift")
+        safety_n = sum(1 for fnd in pin_findings if fnd.get("check") in mcpcheck.SAFETY_CHECKS
+                       and fnd.get("severity") in mcpcheck.GATE_SEVERITIES)
+        print(
+            f"-- {len(hits)} advisory hits, {len(ext)} extension hits, {len(hyg)} hygiene items, "
+            f"{drift_n} pin-drift, {safety_n} safety"
+        )
         print("A clean result does not mean your setup is safe. See README for limits.")
     return mcpcheck.exit_code(hits, ext, pin_findings, a.exit_zero)
 

@@ -4,6 +4,7 @@ include pyproject.toml
 include README.md
 include LICENSE
 include MANIFEST.in
+include CHANGELOG.md
 recursive-include afk_guard *.py
 recursive-include afk_guard/data *.json
 prune afk_guard/platform

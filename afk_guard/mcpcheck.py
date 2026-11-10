@@ -1,5 +1,10 @@
 """Check OpenClaw / MCP client config files against the bundled advisory list.
 
+Python 3.11+ reads TOML with ``tomllib``. Python 3.9 and 3.10 use the conditional
+``tomli`` dependency. A missing parser, a broken install, and a parser crash are
+separate notes. None of those notes includes the config body.
+
+
 Pin state (``afk-guard/mcp-pins/v1``) records a syntax-validated package pin and a
 content hash of the non-secret launch projection. The hash is SHA-256 of canonical
 JSON (sorted keys, compact separators), prefixed ``sha256:``.
@@ -17,6 +22,7 @@ classified without treating them as secret. Those launches are refused rather th
 stripped and then described as fully covered.
 """
 import hashlib
+import importlib
 import json
 import os
 import re
@@ -27,10 +33,39 @@ from datetime import datetime, timezone
 from typing import Dict, Iterable, Iterator, List, Optional, Tuple
 from urllib.parse import urlsplit
 
-try:
-    import tomllib  # py3.11+
-except ImportError:  # pragma: no cover
-    tomllib = None
+def _try_import(name: str):
+    """Return ``(module, status, exc_name)``.
+
+    ``ModuleNotFoundError`` means the module is not installed. Any other import
+    failure is ``broken-import`` and ``exc_name`` is that exception's class.
+    The exception text is discarded.
+    """
+    try:
+        return importlib.import_module(name), "ok", ""
+    except ModuleNotFoundError:
+        return None, "missing", ""
+    except Exception as exc:
+        return None, "broken-import", exc.__class__.__name__
+
+
+def _load_toml_parser():
+    """Return ``(module or None, status, exc_name)``.
+
+    Status is ``ok``, ``missing``, or ``broken-import``. Python 3.11+ uses
+    ``tomllib``. Python 3.9 and 3.10 use ``tomli``.
+    """
+    mod, status, exc_name = _try_import("tomllib")
+    if mod is not None:
+        return mod, "ok", ""
+    if status != "missing":
+        return None, status, exc_name
+    mod, status, exc_name = _try_import("tomli")
+    if mod is not None:
+        return mod, "ok", ""
+    return None, status, exc_name
+
+
+_toml, _toml_status, _toml_exc_name = _load_toml_parser()
 
 from .scan import scan_text
 
@@ -165,12 +200,28 @@ def parse_config(path: str) -> Tuple[List[Server], List[str]]:
             raw = fh.read()
     except OSError as e:
         return [], [f"{path}: unreadable ({e.__class__.__name__})"]
-    data = None
-    try:
-        data = tomllib.loads(raw) if path.endswith(".toml") and tomllib else json.loads(_strip_jsonc(raw))
-    except Exception:
-        notes.append(f"{path}: could not parse as JSON/TOML; skipped")
-        return [], notes
+    if path.endswith(".toml"):
+        if _toml is None:
+            if _toml_status == "broken-import":
+                label = _toml_exc_name or "Exception"
+                notes.append(f"{path}: TOML parser failed to load ({label}); config skipped")
+            else:
+                notes.append(f"{path}: TOML parsing unavailable; config skipped")
+            return [], notes
+        try:
+            data = _toml.loads(raw)
+        except Exception as exc:
+            if exc.__class__.__name__ == "TOMLDecodeError":
+                notes.append(f"{path}: could not parse as JSON/TOML; skipped")
+            else:
+                notes.append(f"{path}: TOML parser crashed ({exc.__class__.__name__}); config skipped")
+            return [], notes
+    else:
+        try:
+            data = json.loads(_strip_jsonc(raw))
+        except Exception:
+            notes.append(f"{path}: could not parse as JSON/TOML; skipped")
+            return [], notes
     client = "openclaw" if "openclaw" in path.lower() else os.path.basename(os.path.dirname(path)) or "unknown"
     servers = []
     for group, sn, sv in _find_servers(data):
@@ -456,7 +507,13 @@ def utc_now() -> str:
 
 def notes_indicate_parse_failure(notes: Iterable[str]) -> bool:
     for note in notes:
-        if "could not parse" in note or "unreadable" in note:
+        if any(marker in note for marker in (
+            "could not parse",
+            "unreadable",
+            "TOML parsing unavailable",
+            "TOML parser failed to load",
+            "TOML parser crashed",
+        )):
             return True
     return False
 
@@ -848,6 +905,24 @@ def safety_findings(records: Iterable[Dict]) -> List[Dict]:
     return duplicate_findings(recs) + integrity_findings(recs)
 
 
+def parse_skip_findings(notes: Iterable[str]) -> List[Dict]:
+    """High ``config-unparseable`` findings for configs that were not parsed.
+
+    The check name is already in ``SAFETY_CHECKS``, so ``exit_code`` returns 1
+    unless ``--exit-zero``. The message does not include the config body.
+    """
+    findings = []
+    for note in notes:
+        if not notes_indicate_parse_failure([note]):
+            continue
+        findings.append(_finding(
+            "config-unparseable", "high",
+            "config could not be parsed; result is incomplete",
+            file=note.split(":", 1)[0],
+        ))
+    return findings
+
+
 def compare_pins(saved: List[Dict], current: List[Dict]) -> List[Dict]:
     """High-severity findings when a covered pin or content hash drifted.
 
@@ -1086,9 +1161,11 @@ def build_report(version: str, generated_at: str, configs: List[str], servers: L
             "hash_coverage": _HASH_COVERAGE,
             "process_exit": (
                 "Exit 1 when advisory hits, extension hits, pin drift, or safety findings "
-                "with severity high or medium are present, unless --exit-zero. Severity info "
-                "(baseline recorded or refreshed) does not fail the process. Hygiene findings "
-                "carry severity for CI but do not by themselves change the process exit."
+                "with severity high or medium are present, unless --exit-zero. An unparseable "
+                "config is a high config-unparseable safety finding, including when no pin file "
+                "is requested. Severity info (baseline recorded or refreshed) does not fail the "
+                "process. Hygiene findings carry severity for CI but do not by themselves change "
+                "the process exit."
             ),
         },
         "configs": list(configs),

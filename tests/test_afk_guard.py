@@ -215,7 +215,10 @@ class McpCheckTests(unittest.TestCase):
         self.assertEqual(self.verdict("n8n-mid"), {"affected"})
         self.assertEqual(self.verdict("gitbook"), {"present"})
         self.assertEqual(self.verdict("fs"), {"check-version"})
-        self.assertEqual(self.verdict("fastmcp-thing"), {"affected"})
+        if mcpcheck._toml is None:
+            self.assertEqual(self.verdict("fastmcp-thing"), set())
+        else:
+            self.assertEqual(self.verdict("fastmcp-thing"), {"affected"})
         self.assertEqual(self.verdict("safe"), set())
 
     def test_verdict_rules(self):
